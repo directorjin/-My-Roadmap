@@ -22,7 +22,8 @@ Dictionary<string,string> cache; //key도 value도 string타입임.
 ----------
 
 4. Property //전체를 바꿔줌 파라미터가 없음. 쓰는 이유는 private로 은닉한 정보를 get하고 set을 설정해서 코드의 가독성을 높이기 위해  
-  
+---------
+
 public DataTime CacheExpires	  
 {	  
 	get {return cacheExpires;}  	
@@ -50,7 +51,8 @@ visual studio환경에서 🔧는 전부 property임. array의 lenth가 프로�
   
   
 5. Indexer //특정값만 바꿔줄 수 있음 파라미터가 있음  	  
-  
+-----------
+
 this가 인덱서의 핵심.	 인덱서는 클래스의 프로퍼티라고 생각하면 됌.    
 
 
