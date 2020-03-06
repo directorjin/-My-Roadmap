@@ -55,7 +55,7 @@ visual studio환경에서 🔧는 전부 property임. array의 lenth가 프로�
 
 
 this가 인덱서의 핵심.	 인덱서는 클래스의 프로퍼티라고 생각하면 됌.    
-
+인덱서를 이용하면 배열에 잘못접근해도 오류가 안뜨게 할 수 있음.
 
 public class Record  
 {
