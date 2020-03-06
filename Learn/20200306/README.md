@@ -30,9 +30,10 @@ public DataTime CacheExpires
 	set {cacheExpires = value;}//여기서 value는 위에서 선언하지 않았아도 Property에서 자체적으로 구현되어있음.  
 private int salary;	  
 public int SalaryP  	
-{ 	  
-	get{ return salary;}	  
-	private set {salary = value;}//private로 설정해준 이유는 set. 즉 SalaryP = 2;와 같이 Start에서 실행해주는 것은 괜찮지만 은닉성 보장을 위해 다른 클래스에서의 접근은 막아야 하기 때문임. 
+{ 	    
+	get{ return salary;}	    
+	private set {salary = value;
+}    //private로 설정해준 이유는 set. 즉 SalaryP = 2;와 같이 Start에서 실행해주는 것은 괜찮지만 은닉성 보장을 위해 다른 클래스에서의 접근은 막아야 하기 때문임. 
 	  
 private int salary;	  
 //쓰는 이유? 	  
