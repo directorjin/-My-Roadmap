@@ -74,7 +74,7 @@ visual studio환경에서 🔧는 전부 property임. array의 lenth가 프로�
 2. [HideInInspector]
 
 
-
+<img src="https://user-images.githubusercontent.com/44941601/76096588-afe1bb80-6009-11ea-814f-d83250a8d694.png>
 
 
 
@@ -83,12 +83,11 @@ visual studio환경에서 🔧는 전부 property임. array의 lenth가 프로�
 
 
 
-
-
 3. [Range(최소값,최대값)]
 
 
 
+<img src="https://user-images.githubusercontent.com/44941601/76096655-cab43000-6009-11ea-8812-d04156ee6341.png">
 
 
 
@@ -103,47 +102,15 @@ visual studio환경에서 🔧는 전부 property임. array의 lenth가 프로�
 
 
 
-4. [Header("라벨명"]
 
 
 
 
+4. [TextArea] , [Multiline] , [TextArea(int line)] , [Multiline(int line)]
 
 
-
-
-
- - 변수 앞에 라벨을 표기한다.
-
- - 보통 구분이 잘 안되서 -나 * 같은 특수문자를 넣어서 표시한다. 
-
-
-
-
-5. [Space] , [Space(int height)]
-
-
-
-
-
-
-
-
-
- - 변수 사이에 한줄을 띄워준다 라벨을 굳이 달지 않더라도 정리하고 싶을때 사용한다.
-
- - 뒤에 매개변수로 높이를 넣어줄 수 있다.
-
-
-
-
-
-6. [TextArea] , [Multiline] , [TextArea(int line)] , [Multiline(int line)]
-
-
-
-
-
+<img src="https://user-images.githubusercontent.com/44941601/76096794-f46d5700-6009-11ea-9a8b-24ddd8eef536.png">
+<img src="https://user-images.githubusercontent.com/44941601/76096847-0949ea80-600a-11ea-95a8-c61d27bb0f93.png">
 
 
 
@@ -160,12 +127,12 @@ visual studio환경에서 🔧는 전부 property임. array의 lenth가 프로�
 
 
 
-7. [ColorUsage(bool alphaView)]
+5. [ColorUsage(bool alphaView)]
 
 
 
-
-
+<img src="https://user-images.githubusercontent.com/44941601/76096906-25e62280-600a-11ea-89fd-3289e86efd61.png">
+<img src="https://user-images.githubusercontent.com/44941601/76096939-33031180-600a-11ea-8db7-18d639b3bc49.png">
 
 
 
