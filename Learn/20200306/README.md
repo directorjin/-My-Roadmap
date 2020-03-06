@@ -19,14 +19,19 @@ Dictionary<string,string> cache; //key도 value도 string타입임.
 <hr>
 
 4. Indexer //특정값만 바꿔줄 수 있음 파라미터가 있음	
-public string this[string key] //this가 인덱서의 핵심.		
+
+public string this[string key] //this가 인덱서의 핵심.	
+
 {	
+
 	get;	
+	
 	set;	
+	
 }	
 	
 	
-5. Property //전체를 바꿔줌 파라미터가 없음. 쓰는 이유는 private로 은닉한 정보를 효과적으로 get하고 set 하기 위해	
+5. Property //전체를 바꿔줌 파라미터가 없음. 쓰는 이유는 private로 은닉한 정보를 get하고 set을 설정해서 코드의 가독성을 높이기 위해
 
 public DataTime CacheExpires	
 {	
