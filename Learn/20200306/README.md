@@ -54,4 +54,6 @@ public void SetSalary(int value)
 }	  
 //이런식으로 구현할 수도 있지만 이렇게 되면 함수자체가 무지막지하게 많아짐. 가독성이 떨어지기 때문에 private로 선언된  	
 변수의 관리는 프로퍼티로 관리하는 것이 좋음. 그리고 get을 할때 어떤 private 변수를 건드리지않고 조작할 수 있고(salary + bonus), set을 할때는 if 조건문을 이용해서 if(value <0) {print("error");} else {salary = value;} 이런식으로도 설정가능함.	  
+
+visual studio환경에서 🔧는 전부 property임. array의 lenth가 프로퍼티로 구현되어있음.
 <hr/>  
