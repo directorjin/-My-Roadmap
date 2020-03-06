@@ -16,7 +16,7 @@ C#basic
 Dictionary<string,string> cache; //key도 value도 string타입임.	
 	
 	
-<hr>
+
 
 *important*
 ----------
@@ -143,3 +143,4 @@ visual studio환경에서 🔧는 전부 property임. array의 lenth가 프로�
 
 
  - 컬러픽커를 사용한다. 뒤의 bool 값은 알파값도 포함하는지여부
+<hr/>
