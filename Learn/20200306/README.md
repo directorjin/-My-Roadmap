@@ -57,3 +57,117 @@ public void SetSalary(int value)
 
 visual studio환경에서 🔧는 전부 property임. array의 lenth가 프로퍼티로 구현되어있음.
 <hr/>  
+
+1. [SerializeField]
+
+<img src="https://user-images.githubusercontent.com/44941601/76096471-832da400-6009-11ea-8192-6c1f7e7910a4.png">
+
+
+ - private 변수를 인스펙터에 노출시킴
+
+ - [System.Serializable]을 사용한 Structure 타입 변수에 사용하면 인스펙터에 노출되는 효과.
+
+
+
+
+
+2. [HideInInspector]
+
+
+
+
+
+
+
+ - 이건 반대로 public 이라도 인스펙터에 노출시키지 않음
+
+
+
+
+
+3. [Range(최소값,최대값)]
+
+
+
+
+
+
+
+
+
+ - 인스펙터에서 입력할 때 변수의 수치를 제한해서 입력할 수 있다.
+
+ - 실제 값을 제한시키는 효과는 없어서 넘는 수치를 대입하면 그대로 들어간다.
+
+
+
+
+
+4. [Header("라벨명"]
+
+
+
+
+
+
+
+
+
+ - 변수 앞에 라벨을 표기한다.
+
+ - 보통 구분이 잘 안되서 -나 * 같은 특수문자를 넣어서 표시한다. 
+
+
+
+
+5. [Space] , [Space(int height)]
+
+
+
+
+
+
+
+
+
+ - 변수 사이에 한줄을 띄워준다 라벨을 굳이 달지 않더라도 정리하고 싶을때 사용한다.
+
+ - 뒤에 매개변수로 높이를 넣어줄 수 있다.
+
+
+
+
+
+6. [TextArea] , [Multiline] , [TextArea(int line)] , [Multiline(int line)]
+
+
+
+
+
+
+
+
+
+ - string 타입의 변수를 여러줄로 입력할 수 있다.
+
+ - 변수명 라벨과 다른줄로 표기되느냐 한 줄로 표기되는냐 차이
+
+ - 이 attribute를 사용하면 string 타입에서 엔터를 따로 처리안해줘도 된다!
+
+ - 역시 뒤쪽에 int값으로 줄 갯수를 넣어줄 수 있다. 디폴트는 3
+
+
+
+
+
+7. [ColorUsage(bool alphaView)]
+
+
+
+
+
+
+
+
+
+ - 컬러픽커를 사용한다. 뒤의 bool 값은 알파값도 포함하는지여부
