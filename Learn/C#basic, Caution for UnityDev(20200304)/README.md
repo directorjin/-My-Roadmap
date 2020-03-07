@@ -10,7 +10,7 @@
 C#basic
 ----
 
-1. IEnumerable, yield  
+1. IEnumerable, yield,IEnumerator  
 2. enum in the [Flags] 
 3. bit operation, shift operation  
 4. String(Substring(),Replace(),Remove(),Trim())  *string is immutable type*  so be careful of out of memory.  
