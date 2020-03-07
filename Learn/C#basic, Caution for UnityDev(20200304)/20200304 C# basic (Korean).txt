@@ -1,0 +1,96 @@
+IEnumerable<int> GetScore()
+yield return 이면 여기까지 실행을 했다 기억을 하게 만듬. 
+메소드가 실행될때마다 다음 yield가 실행이 됌
+foreach하고 같이 자주 사용 됌.
+
+
+[Flags]
+enum Border
+를 이용하면 이벤트 처리를 쉽게 이어갈 수 있음. 선언자체는 2진수로 바꿔서 겹치지 않게
+예를 들어 
+Top = 1
+Right = 2
+Bottom = 4
+Left = 8
+
+Border b = Border.Top or Border.Bottom
+flag에서 or을 사용하면 다중 플래그를 할당하는 것이 가능함.
+
+b가 Top이라는 값을 가지고 있는지를 체크하고 싶다면
+//논리연산이 아닌 비트연산임. 왜냐하면 논리연산은 &&으로 두개씩 씀. or도 마찬가지로 막대기 두개.
+//비트연산은 ^가 XOR임.(하나만 참이라면 참, 둘다참이면 거짓)
+if((b & Border.Top) != 0) //왜냐하면 숫자 연산의 &는 2진수로 처리되기 떄문 0101 & 0001 = 0001 그러므로 0이 아니기때문에 true
+{
+
+}
+이거하고 같은 메소드가 있음
+if(b.HasFlag(Border.Top or Border.Bottom))
+{
+
+}
+
+
+shift 연산자 
+비트연산의 큰 장점은 스피드. 임베디드 환경에서 잘 활용됌.
+
+
+String의 Substring은 특정 문자열을 가져온다.
+예를 들어서 string s2 = "Programming";
+s2 = s2.Substring(1,4);
+s2는 rogr을 가지게 된다.
+s2 = s2.Replace("ro","RO");
+s2는 ROgr을 가지게 된다.
+String s3 = s2.Remove(3);
+s3는 ROg를 가지게 된다.
+공백을 삭제하는 방법은
+s4 = "Hello    ".Trim();
+s4는 Hello를 가지게 된다.
+string은 immutable type이다. 그래서 할당을 새롭게 하면 새로운 주소로 연결된다.
+string s1 = "C#"; //100번지
+s1 = "F#"; //200번지
+그래서 out of memory에러가 나올수도 있음. 메모리에 주소를 새로 할당하기 때문에
+
+스트링의 변경이 잦을 경우에는 StringBuilder라는 클래스를 사용할것을 권장함. 이것은 자체적인 버퍼를 가지고 있음.
+
+StringBuilder sb = new StringBuilder("Hello ",50);
+
+sb.Append("World!!");
+sb.AppendLine("Hello C#!");
+sb.AppendLine("This is new line.");
+
+Console.WriteLine(sb);
+
+OutPut:
+Hello World!! Hello C#!.
+This is new line.
+
+
+try catch는 유니티에서 사용하려면 Exception을 사용하기 위해 using System; 을 선언해줘야함.
+try 
+{
+}
+catch
+{
+}
+
+
+하나의 네임스페이스 안에 여러가지 클래스나 struct를 선언할 수 있음. 논리적인 container
+그러나 일반적으로는 별도의 파일을 생성해서 정의한다.
+동일한 네임스페이스에 있다면 다른 클래스에서 contact할 수 있음.
+다른 네임스페이스에 있다면 참조해서 쓰면됌.
+MyProject에 선언된 Encryptor클래스라면
+MyProject.Encryptor ee = new MyProject.Encryptor();로 할당가능.
+이런식으로 너무 길게 쓰기 싫으면
+using을 써서 생략해줄 수 있음.
+using MyProject;
+
+
+구조체는 예를들어서
+Draw(int left, int top, int width, int height)
+{
+DrawRectangle(left,top,width,height);
+}
+로 되어있을 때 레퍼런스를 저런식으로 길게 넘겨주는 것이 아니라 어떤한 구조를 만들어서 구조자체를
+넘겨주는 것이 효율적임.
+
+그런데 struct는 value type이므로 데이터를 전달할때 값을 복사해서 전달함.(주소 X)
