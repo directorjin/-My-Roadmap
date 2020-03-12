@@ -19,7 +19,7 @@ collection
 int[exp] new int[5] {1,2,3,4,5};
 배열은 동적인 변화가 불가능함
 
-컬렉션은 리스트는 큐, 스택, 해시테이블, 딕셔너리, 어레이리스트가 있음.
+컬렉션은 ArrayList, List, Queue, Stack, HashTable, Dictionary가 있음.
 
 ArrayList
 ------
