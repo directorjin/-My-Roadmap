@@ -4,122 +4,88 @@
     
  <hr>
  
-2020-03-14
+2020-03-15
 =====
 
+T
+--
 
-Property
-------
+형식매개변수 T는 어떤것이 올지 모를 때 임시로 지정해주게 한다.
+그리고 해당 변수를 제한시켜둘 수 있음. 
 
-프로퍼티를 사용하지 않으면 어떤 프라이빗 변수를 사용할때 함수가 적어도 두가지가 필요하다
-
-public으로 선언된 set과 private로 선언된 get이 필요하다.
-
-이렇게 계속 함수들을 추가하면 코드자체가 더러워진다.
-
-이럴때는 프로퍼티를 선언하면 된다.
-
-salary라는 것을 프라이빗 변수로 두고
-
-public으로 어떤 프로퍼티를 선언해준다. 그리고 {get {return salary;} set {salary = value;}}로 선언해준다.
-
-근데 set앞에 private를 선언해줘서 타클래스에서 접근이 불가능하도록 만들 수도 있다.
-
-그리고 get과 set을 할때 조건문들을 사용하거나 논리를 진행할 수 있어서 객체지향적인 코드를 작성할 수 있다.
-
-그고 프로퍼티 자체는 변수자체의 역할도 할 수 있다.
-
-프로퍼티 : 변수를 도와줄수도 있고 변수가 될 수도 있는 것. 함수를 이용해서 변수에 접근이나 수정을 하게 하는 것이
-아니라 프로퍼티를 이용해서 변수자체의 접근과 수정을 컨트롤하면 더욱 깔끔한 코드를 작성할 수 있다.
+void Print<T>(T value) where T : class //이렇게되면 string형식은 가능하지만 float형식은 불가능.
+void Print<T>(T value) where T : struct //이렇게되면 float형식은 가능하지만 string형식은 불가능
 
 
-Indexer
-------
+클래스에서도 지정가능
 
-클래스에 어떤 배열이 존재했을때 Record.temp[3] = 5;라는 식이 아니라 Record[3] = 5로 바꾸고 싶을때 쓴다.
-
-public int this [int index] //이것이 인덱서. 클래스를 인덱스로 접근하게 해준다는 것임.
+public class Abc<T>//어떤 클래스를 생성하는데 이 클래스에서는 T라는 형식이 지정되지않은 변수를 쓸것이다.
 {
-	get { return temp[index]}
-	set {temp[index] = value;}
+	public T var;
+	public T[] array;
 }
 
-인덱서는 프로퍼티의 한 종류임. 클래스를 인덱스로 만들어줘서 접근을 가능하게 해주는 프로퍼티임.(get과 set이 있는)
-  
-  
-  
-Event = 옵저버 패턴이 녹아져있음. 옵저버를 구현할 필요가없음.
+Abc abcStack;//이건 스택영역에 올라감. 왜냐하면 동적으로 할당해주지 않았기 때문임.
+Abc abcHeap = new Abc();//이건 힙영역에 올라감. 동적으로 할당해주었기 때문
+
+abcStack.var = "abc"
+abcHeap.var = "Abc"
+이런식으로 사용가능.
+
+
+Lamdba Expression
+----------
+
+myDelegate += Add;
+myDelegate += () => print(sum);//람다식. ()이있다는 것은 어떤 함수인데 => 그것은 프린트 섬을 해주는 함수이다.라는 의미
+myDelegate += Back;
+
+myDelegate();
+
+
+
+Action
 ----
 
-이벤트는 클래스내에 특정한 일(event)이 있어났음을 외부의 이벤트 가입자(subscriber)들에게 알려주는 기능을 한다. 
-C#에서 이벤트는 event라는 키워드를 사용하여 표시하며, 클래스 내에서 일종의 필드처럼 정의된다.
 
-이벤트에 가입하는 외부 가입자 측에서는 이벤트가 발생했을 때 어떤 명령들을 실행할 지를 지정해 주는데,
- 이를 이벤트 핸들러라 한다. 이벤트에 가입하기 위해서는 += 연산자를 사용하여 이벤트핸들러를 이벤트에
- 추가한다. 반대로 이벤트핸들러를 삭제하기 위해서는 -= 연산자를 사용한다. 하나의 이벤트에는 여러 개의 
-이벤트핸들러들을 추가할 수 있으며, 이벤트가 발생되면 추가된 이벤트핸들러들을 모두 차례로 호출한다.
+이것은 사용해주기 위해 using System을 사용해야함. 
+다만 이것은 void타입임. 델리게이트의 void타입과 같다고 보면 됌.
 
+Func
+---
 
-즉 이벤트는 나는 이런 변수들을 갱신해줄 수 있으니 관심있는사람은 가입하렴.
-이벤트 제공자와 가입자가 존재함.
-가입할때의 문법
-fm.InProgress += function;
-fm이라는 다른 클래스의 생성된 객체에 inProgress라는 이벤트에 가입시킨다. 어떤것을?
-자신의 클래스의 fucntion이라는 것을 가입 시킨다. 그러면 결국 이벤트가 진행될떄
-inProgress가 실행된다. 
-
-public event EventHandler<double> InProgress;
-더블타입의 반환형식을 가지는 이벤트핸들러를 정의
-InProgress를 사용하는 방법은
-InProgress(sender,double) 즉 첫번째 파라미터는 누가 이 이벤트를 보내주는지. 그리고 그 값은 무엇인지.
-
-받는쪽에서는 Fm_InProgress라는 함수가 필요하다.(가입시킨 함수) 그 함수는 인자를 똑같이 가진다. object와 double로.
+이것은 사용해주기위해 using System을 사용해야함.
+다만 이것은 인자가 다름
+Func<int, int, string>으로 마지막 string이 반환형식임. 무조건 마지막 것은 반환형식임.
 
 
 
-Boxing, UnBoxing
------------
+Coroutine
+------
+
+StopCorutine(myCoroutine1);//이말은 무슨말이나면 myCoroutine1에 대입되어있는 어떤 startCoroutine을 중지시키라는 말임.
+오해하지말길
+StopCorutine(LoopA())//이런식은 X 이런식으로 코루틴이 중지되지 않음.
+
+문자열을 이용한 코루틴 시작은 쓰지말아야함. 왜냐하면 조금 더 과부화가 걸리기 때문.
+
+Invoke
+--
+코루틴과 같지만 지연을 간단하게 구현해줌
+InvokeRepeating("InvokeLog", 3f, 1f); //인보크 로그라는 것을 처음에 3초 지연시킨다음에 1초마다 실행시킨다.
+Invoke("InvokeLog2", 10f);//처음 10초를 기다리고 실행시킨다.
+
+CancelInvoke("InvokeLog")를 하면 인보크가 중지된다. 인보크는 ""타입의 String으로 제어
 
 
-Value Type은 int, char 등의 기초 데이타(Primitive data)를 저장하는 타입으로 그 값이 Stack에 저장된다. (주:struct 타입은 Value Type이다) Reference Type은 Managed Heap에 객체를 생성하고 이 참조값을 스택 혹은 Heap에 갖는다. Reference Type인 클래스가 객체를 Heap에 만들 때, 클래스 멤버로 Value Type을 갖는 경우, 이는 Heap에 생성된다.
+OverlapSphere
+----------
 
-Value Type의 값을 캐스팅을 통해 Reference Type으로 변경할 경우, Reference Type의 객체는 새 객체를 Managed Heap에 만들고, 스택의 값을 Heap에 복사하는데, 이를 Boxing이라 한다.
-
-Boxing의 예
-
-int val = 100;
-object obj1 = (object)val;
-반대로 박싱된 값을 Heap에서 Stack으로 Value Type으로 복원하는 과정은 Unboxing이라고 한다.
-
-Unboxing의 예
-
-int v = (int)obj1;
-박싱/언박싱을 대량의 데이타 구조에서 자주 발생시키면, 성능을 크게 저하시키는 요인이 된다.
+Physhics.OverlapSphere(Vector3 원점, float 반경, LayerMask 마스크);
+Collider[] cols = Physics.OverlapSphere(transform.position, 10.0f,player);
+트랜스폼의 위치를 중심으로 10거리내읭 있는 오브젝트들의 콜라이더가 배열형태로 cols에 저장됌
 
 
-RunTime and CompileTime
-----------------
-
-컴파일 타임 : 프로그램을 생성할때가 컴파일 타임.
-런타임 : 프로그램을 실행할때가 런타임.
-
-
-Memory usage in C#
----------
-데이터 영역 : 전역변수와 전역함수가 할당되는 영역 프로그램 시작과 동시에 할당되고 종료되면 없어짐.
-힙영역(class) : 런타임에 결정(프로그램이 실행할때 잡힘) - 한 프로그램에서 힙영역은 메모리에 동적임.
-스택영역(local value, value) : 컴파일 타임에 결정.(즉 설치되었을때 스택영역은 잡힘) - 즉 한 프로그램에서 스택영역은 메모리에 크기가 고정.
-런타임에 메모리 크기를 결정하고 싶을때는 메모리에 동적인 할당을 해주어야한다.
-
-
-그리고 C#에서 스택메모리를 사용하면 변수가 할당된 위치에 값만 변경이 된다.
-함수가 끝날때 해당 함수내의 지역 변수의 스택은 없어진다.
-힙메모리는 언제 사라질지 알수없다. 가비지콜렉터가 알아서 힙의 메모리 해제를 해주기 때문.
-
-value형식의 변수는 스택에 저장되지만
-reference형식의 변수는 스택에는 주소가 저장이 되고 힙영역에 그 값이 할당이 된다.
-new로 생성되는 모든 참조형 객체는 메모리의 힙영역에 할당이 된다.
-가비지콜렉터로하면 메모리 누수(Memory Leak) 현상이 일어날수도 있다.
 
 
 
